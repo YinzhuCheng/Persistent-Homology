@@ -1,7 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "preact/hooks";
-
-// 说明：单文件 React/Preact 组件（可直接渲染）。
-// 特色：同你提供的一致，不变。
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 function manhattan(a: Point, b: Point) {
   return Math.abs(a.r - b.r) + Math.abs(a.c - b.c);
