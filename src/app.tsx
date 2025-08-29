@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 function manhattan(a: Point, b: Point) {
   return Math.abs(a.r - b.r) + Math.abs(a.c - b.c);
