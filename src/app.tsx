@@ -245,7 +245,7 @@ export default function PersistentHomologyGame() {
               <div className="mt-2 space-y-2">
                 <ToggleRow label="显示边" checked={showEdges} onChange={setShowEdges} />
                 <ToggleRow label="显示三角面" checked={showTriangles} onChange={setShowTriangles} />
-                <ToggleRow label="显示洞（代表环）" checked={showHoles} onChange={setShowHoles} />
+                <ToggleRow label="显示洞" checked={showHoles} onChange={setShowHoles} />
               </div>
 
               <div className="pt-2 text-xs text-slate-500">操作提示：点击棋盘交叉点以添加/去除棋子。</div>
