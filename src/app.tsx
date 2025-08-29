@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import type { ChangeEvent } from 'react';
+
 function manhattan(a: Point, b: Point) {
   return Math.abs(a.r - b.r) + Math.abs(a.c - b.c);
 }
@@ -194,11 +196,11 @@ export default function PersistentHomologyGame() {
               <div>
                 <label className="text-sm text-slate-600">棋盘尺寸 N×N</label>
                 <div className="mt-1 flex items-center gap-2">
-                  <input
+                   <input
                     type="range" min={5} max={19} value={boardN}
-                    onChange={(e: Event) => setBoardN(parseInt((e.currentTarget as HTMLInputElement).value))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setBoardN(parseInt(e.target.value))}
                     className="w-full"
-                  />
+                    />
                   <span className="w-10 text-right text-sm tabular-nums">{boardN}</span>
                 </div>
               </div>
@@ -208,7 +210,7 @@ export default function PersistentHomologyGame() {
                 <div className="mt-1 flex items-center gap-2">
                   <input
                     type="range" min={0} max={Math.min(40, boardN * boardN)} value={initCount}
-                    onChange={(e: Event) => setInitCount(parseInt((e.currentTarget as HTMLInputElement).value))}
+                     onChange={(e: ChangeEvent<HTMLInputElement>) => setInitCount(parseInt(e.target.value))}
                     className="w-full"
                   />
                   <span className="w-10 text-right text-sm tabular-nums">{initCount}</span>
@@ -220,7 +222,7 @@ export default function PersistentHomologyGame() {
                 <div className="mt-1 flex items-center gap-2">
                   <input
                     type="range" min={1} max={Math.max(3, Math.min(10, boardN))} value={epsilon}
-                    onChange={(e: Event) => setEpsilon(parseInt((e.currentTarget as HTMLInputElement).value))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEpsilon(parseInt(e.target.value))}
                     className="w-full"
                   />
                   <span className="w-10 text-right text-sm tabular-nums">{epsilon}</span>
@@ -232,7 +234,7 @@ export default function PersistentHomologyGame() {
                 <div className="mt-1 flex items-center gap-2">
                   <input
                     type="range" min={1} max={12} value={targetHoles}
-                    onChange={(e: Event) => setTargetHoles(parseInt((e.currentTarget as HTMLInputElement).value))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setTargetHoles(parseInt(e.target.value))}
                     className="w-full"
                   />
                   <span className="w-10 text-right text-sm tabular-nums">{targetHoles}</span>
@@ -329,7 +331,7 @@ function ToggleRow({ label, checked, onChange }: { label: string; checked: boole
       <input
         type="checkbox" className="h-5 w-5 accent-slate-700"
         checked={checked}
-        onChange={(e: Event) => onChange((e.currentTarget as HTMLInputElement).checked)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
       />
     </label>
   );
